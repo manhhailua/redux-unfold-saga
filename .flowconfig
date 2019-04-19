@@ -1,3 +1,7 @@
 [ignore]
 .*/dist
 .*/coverage
+
+[libs]
+flow-typed/
+src/types
