@@ -1,0 +1,6 @@
+// @flow
+
+type UnfoldSagaHandlerType = {
+  handler: Function,
+  key: string,
+};

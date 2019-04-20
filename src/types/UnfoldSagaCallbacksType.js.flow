@@ -1,0 +1,8 @@
+// @flow
+
+type UnfoldSagaCallbacksType = {
+  onBeginning: Function,
+  onFailure: Function,
+  onFinish: Function,
+  onSuccess: Function,
+};
