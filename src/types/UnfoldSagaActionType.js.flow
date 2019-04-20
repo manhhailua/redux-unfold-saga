@@ -1,0 +1,8 @@
+// @flow
+
+type UnfoldSagaActionType = {
+  callbacks: UnfoldSagaCallbacksType,
+  options: any,
+  payload: any,
+  type: string,
+};
