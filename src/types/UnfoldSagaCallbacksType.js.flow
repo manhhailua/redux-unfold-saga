@@ -4,5 +4,5 @@ type UnfoldSagaCallbacksType = {
   onBeginning: Function,
   onFailure: Function,
   onFinish: Function,
-  onSuccess: Function
+  onSuccess: Function,
 };

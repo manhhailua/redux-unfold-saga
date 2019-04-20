@@ -1,60 +1,60 @@
-import { put } from "redux-saga/effects";
+import { put } from 'redux-saga/effects';
 import {
   createActionTypeOnBeginning,
   createActionTypeOnFailure,
   createActionTypeOnFinish,
   createActionTypeOnSuccess,
-  unfoldSaga
-} from "../src";
-import { noop } from "../src/helpers";
+  unfoldSaga,
+} from '../src';
+import { noop } from '../src/helpers';
 
-describe("Action creators", () => {
+describe('Action creators', () => {
   let key;
 
   beforeAll(() => {
-    key = "TEST";
+    key = 'TEST';
   });
 
-  describe("createActionTypeOnBeginning", () => {
-    test("should return correct string", () => {
+  describe('createActionTypeOnBeginning', () => {
+    test('should return correct string', () => {
       const result = createActionTypeOnBeginning(key);
-      expect(result).toBe("TEST_BEGAN");
+      expect(result).toBe('TEST_BEGAN');
     });
   });
 
-  describe("createActionTypeOnFailure", () => {
-    test("should return correct string", () => {
+  describe('createActionTypeOnFailure', () => {
+    test('should return correct string', () => {
       const result = createActionTypeOnFailure(key);
-      expect(result).toBe("TEST_FAILED");
+      expect(result).toBe('TEST_FAILED');
     });
   });
 
-  describe("createActionTypeOnFinish", () => {
-    test("should return correct string", () => {
+  describe('createActionTypeOnFinish', () => {
+    test('should return correct string', () => {
       const result = createActionTypeOnFinish(key);
-      expect(result).toBe("TEST_FINISHED");
+      expect(result).toBe('TEST_FINISHED');
     });
   });
 
-  describe("createActionTypeOnSuccess", () => {
-    test("should return correct string", () => {
+  describe('createActionTypeOnSuccess', () => {
+    test('should return correct string', () => {
       const result = createActionTypeOnSuccess(key);
-      expect(result).toBe("TEST_SUCCEEDED");
+      expect(result).toBe('TEST_SUCCEEDED');
     });
   });
 });
 
-describe("unfoldSaga", () => {
+describe('unfoldSaga', () => {
   let generator;
   let key;
   let result;
 
-  describe("on happy flow", () => {
+  describe('on happy flow', () => {
     beforeAll(() => {
-      key = "TEST";
+      key = 'TEST';
       generator = unfoldSaga({
         handler: noop,
-        key
+        key,
       });
     });
 
@@ -62,112 +62,189 @@ describe("unfoldSaga", () => {
       result = generator.next();
     });
 
-    test("should PUT onBeginning action", () => {
+    test('should PUT onBeginning action', () => {
       expect(result.done).toBe(false);
       expect(result.value).toEqual(
-        put({ type: createActionTypeOnBeginning(key) })
+        put({ type: createActionTypeOnBeginning(key) }),
       );
     });
 
-    test("should CALL onBeginning callback", () => {
+    test('should CALL onBeginning callback', () => {
       expect(result.done).toBe(false);
       // expect(result.value).toEqual(
       //   put({ type: createActionTypeOnBeginning(key) })
       // );
     });
 
-    test("should CALL handler", () => {
+    test('should CALL handler', () => {
       expect(result.done).toBe(false);
     });
 
-    test("should PUT onSuccess action", () => {
+    test('should PUT onSuccess action', () => {
       expect(result.done).toBe(false);
       expect(result.value).toEqual(
-        put({ type: createActionTypeOnSuccess(key) })
+        put({ type: createActionTypeOnSuccess(key) }),
       );
     });
 
-    test("should CALL onSuccess callback", () => {
+    test('should CALL onSuccess callback', () => {
       expect(result.done).toBe(false);
-      // expect(result.value).toEqual(
-      //   put({ type: createActionTypeOnBeginning(key) })
-      // );
     });
 
-    test("should PUT onFinish action", () => {
+    test('should PUT onFinish action', () => {
       expect(result.done).toBe(false);
       expect(result.value).toEqual(
-        put({ type: createActionTypeOnFinish(key) })
+        put({ type: createActionTypeOnFinish(key) }),
       );
     });
 
-    test("should CALL onFinish callback", () => {
+    test('should CALL onFinish callback', () => {
       expect(result.done).toBe(false);
-      // expect(result.value).toEqual(
-      //   put({ type: createActionTypeOnBeginning(key) })
-      // );
+    });
+
+    test('should end', () => {
+      result = generator.next();
+      expect(result.done).toBe(true);
     });
   });
 
-  describe("on error flow", () => {
+  describe('on error flow on development mode', () => {
+    const fakeError = new Error('test');
+
     beforeAll(() => {
-      key = "TEST";
+      key = 'TEST';
       generator = unfoldSaga({
-        handler: () => {
-          throw new Error("test");
-        },
-        key
+        key,
       });
     });
 
-    beforeEach(() => {
+    test('should PUT onBeginning action', () => {
       result = generator.next();
-    });
-
-    test("should PUT onBeginning action", () => {
       expect(result.done).toBe(false);
       expect(result.value).toEqual(
-        put({ type: createActionTypeOnBeginning(key) })
+        put({ type: createActionTypeOnBeginning(key) }),
       );
     });
 
-    test("should CALL onBeginning callback", () => {
-      expect(result.done).toBe(false);
-      // expect(result.value).toEqual(
-      //   put({ type: createActionTypeOnBeginning(key) })
-      // );
-    });
-
-    test("should CALL handler", () => {
+    test('should CALL onBeginning callback', () => {
+      result = generator.next();
       expect(result.done).toBe(false);
     });
 
-    test("should PUT onFailure action", () => {
+    test('should CALL handler', () => {
+      result = generator.next();
+      expect(result.done).toBe(false);
+    });
+
+    test('should PUT onFailure action', () => {
+      result = generator.throw(fakeError);
       expect(result.done).toBe(false);
       expect(result.value).toEqual(
-        put({ type: createActionTypeOnFailure(key) })
+        put({ type: createActionTypeOnFailure(key), payload: fakeError }),
       );
     });
 
-    test("should CALL onFailure callback", () => {
+    test('should CALL onFailure callback', () => {
+      result = generator.next();
       expect(result.done).toBe(false);
-      // expect(result.value).toEqual(
-      //   put({ type: createActionTypeOnBeginning(key) })
-      // );
     });
 
-    test("should PUT onFinish action", () => {
+    test('should CALL console.log to show where the error occurs', () => {
+      result = generator.next();
+      expect(result.done).toBe(false);
+    });
+
+    test('should CALL console.log to show the error stacktrace', () => {
+      result = generator.next();
+      expect(result.done).toBe(false);
+    });
+
+    test('should PUT onFinish action', () => {
+      result = generator.next();
       expect(result.done).toBe(false);
       expect(result.value).toEqual(
-        put({ type: createActionTypeOnFinish(key) })
+        put({ type: createActionTypeOnFinish(key) }),
       );
     });
 
-    test("should CALL onFinish callback", () => {
+    test('should CALL onFinish callback', () => {
+      result = generator.next();
       expect(result.done).toBe(false);
-      // expect(result.value).toEqual(
-      //   put({ type: createActionTypeOnBeginning(key) })
-      // );
+      // mock
+    });
+
+    test('should end', () => {
+      result = generator.next();
+      expect(result.done).toBe(true);
+    });
+  });
+
+  describe('on error flow on production mode', () => {
+    const fakeError = new Error('test');
+
+    beforeAll(() => {
+      process.env.NODE_ENV = 'production';
+      key = 'TEST';
+      generator = unfoldSaga({
+        handler: () => {
+          throw fakeError;
+        },
+        key,
+      });
+    });
+
+    afterAll(() => {
+      delete process.env.NODE_ENV;
+    });
+
+    test('should PUT onBeginning action', () => {
+      result = generator.next();
+      expect(result.done).toBe(false);
+      expect(result.value).toEqual(
+        put({ type: createActionTypeOnBeginning(key) }),
+      );
+    });
+
+    test('should CALL onBeginning callback', () => {
+      result = generator.next();
+      expect(result.done).toBe(false);
+    });
+
+    test('should CALL handler', () => {
+      result = generator.next();
+      expect(result.done).toBe(false);
+    });
+
+    test('should PUT onFailure action', () => {
+      result = generator.throw(fakeError);
+      expect(result.done).toBe(false);
+      expect(result.value).toEqual(
+        put({ type: createActionTypeOnFailure(key), payload: fakeError }),
+      );
+    });
+
+    test('should CALL onFailure callback', () => {
+      result = generator.next();
+      expect(result.done).toBe(false);
+    });
+
+    test('should PUT onFinish action', () => {
+      result = generator.next();
+      expect(result.done).toBe(false);
+      expect(result.value).toEqual(
+        put({ type: createActionTypeOnFinish(key) }),
+      );
+    });
+
+    test('should CALL onFinish callback', () => {
+      result = generator.next();
+      expect(result.done).toBe(false);
+      // mock
+    });
+
+    test('should end', () => {
+      result = generator.next();
+      expect(result.done).toBe(true);
     });
   });
 });

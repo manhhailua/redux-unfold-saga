@@ -1,7 +1,7 @@
 // @flow
-import { call, put } from "redux-saga/effects";
-import type { Saga } from "redux-saga";
-import { noop } from "./helpers";
+import { call, put } from 'redux-saga/effects';
+import type { Saga } from 'redux-saga';
+import { noop } from './helpers';
 
 export function createActionTypeOnBeginning(key: string): string {
   return `${key}_BEGAN`;
@@ -29,8 +29,8 @@ export function* unfoldSaga(
     onBeginning = noop,
     onFailure = noop,
     onFinish = noop,
-    onSuccess = noop
-  }: UnfoldSagaCallbacksType = {}
+    onSuccess = noop,
+  }: UnfoldSagaCallbacksType = {},
 ): Saga<void> {
   try {
     yield put({ type: createActionTypeOnBeginning(key) });
@@ -40,7 +40,7 @@ export function* unfoldSaga(
     yield call(onSuccess, data);
   } catch (error) {
     yield put({ type: createActionTypeOnFailure(key), payload: error });
-    if (process.env.NODE_ENV !== "production") {
+    if (process.env.NODE_ENV !== 'production') {
       /* eslint-disable no-console */
       yield call(console.log, `Error at ${key} action`);
       yield call(console.log, error);
@@ -58,5 +58,5 @@ export default {
   createActionTypeOnFailure,
   createActionTypeOnFinish,
   createActionTypeOnSuccess,
-  unfoldSaga
+  unfoldSaga,
 };
