@@ -19,7 +19,7 @@ jobs:
         - yarn flow
         - yarn test --coverage
     - stage: release
-      node_js: lts/*
+      if: branch = master
       script: skip
       deploy:
         provider: npm
