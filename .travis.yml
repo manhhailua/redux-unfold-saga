@@ -1,10 +1,37 @@
 language: node_js
+
 node_js:
   - v10
-script:
-  - yarn lint
-  - yarn test --coverage
+
 cache:
-  - yarn
+  directories:
+    - cli/.flow-bins-cache
+    - $HOME/.flow-typed
+    - $HOME/.cache/yarn
+
+jobs:
+  include:
+    - stage: test
+      before_script:
+        - npx flow-typed install
+      script:
+        - yarn lint
+        - yarn flow
+        - yarn test --coverage
+    - stage: release
+      script: skip
+      deploy:
+        provider: npm
+        api_key: $NPM_TOKEN
+        email: manhhailua@gmail.com
+        skip_cleanup: true
+        script:
+          - npx semantic-release
+
+stages:
+  - name: test
+  - name: release
+    if: branch = master
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
