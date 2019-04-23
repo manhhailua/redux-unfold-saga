@@ -26,6 +26,7 @@ jobs:
         email: manhhailua@gmail.com
         skip_cleanup: true
         script:
+          - yarn build
           - npx semantic-release
 
 stages:
