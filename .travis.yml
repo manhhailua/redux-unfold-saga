@@ -29,9 +29,5 @@ jobs:
         script:
           - npx semantic-release
 
-stages:
-  - test
-  - release
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
