@@ -9,19 +9,18 @@ cache:
     - $HOME/.flow-typed
     - $HOME/.cache/yarn
 
-install:
-  - yarn install
-  - npx flow-typed install
-
 jobs:
   include:
     - stage: test
+      before_script:
+        - npx flow-typed install
       script:
         - yarn lint
         - yarn flow
         - yarn test --coverage
     - stage: release
       node_js: lts/*
+      script: skip
       deploy:
         provider: npm
         api_key: $NPM_TOKEN
