@@ -19,7 +19,6 @@ jobs:
         - yarn flow
         - yarn test --coverage
     - stage: release
-      if: branch = master
       script: skip
       deploy:
         provider: npm
@@ -28,6 +27,11 @@ jobs:
         skip_cleanup: true
         script:
           - npx semantic-release
+
+stages:
+  - name: test
+  - name: release
+    if: branch = master
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
