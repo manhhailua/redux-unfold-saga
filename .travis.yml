@@ -9,6 +9,9 @@ script:
   - yarn flow
   - yarn test --coverage
 cache:
-  - yarn
+  directories:
+    - cli/.flow-bins-cache
+    - $HOME/.flow-typed
+    - $HOME/.cache/yarn
 after_success:
   - bash <(curl -s https://codecov.io/bash)
