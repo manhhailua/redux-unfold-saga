@@ -1,8 +1,11 @@
 language: node_js
 node_js:
   - v10
+before_install:
+  - npx flow-typed install
 script:
   - yarn lint
+  - yarn flow
   - yarn test --coverage
 cache:
   - yarn
