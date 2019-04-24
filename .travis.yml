@@ -21,12 +21,9 @@ jobs:
     - stage: release
       script: skip
       deploy:
-        provider: npm
-        api_key: $NPM_TOKEN
-        email: manhhailua@gmail.com
+        provider: script
         skip_cleanup: true
         script:
-          - yarn build
           - npx semantic-release
 
 stages:
