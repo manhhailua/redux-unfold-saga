@@ -108,82 +108,10 @@ describe('unfoldSaga', () => {
     });
   });
 
-  describe('on error flow on development mode', () => {
+  describe('on error flow', () => {
     const fakeError = new Error('test');
 
     beforeAll(() => {
-      key = 'TEST';
-      generator = unfoldSaga({
-        key,
-      });
-    });
-
-    test('should PUT onBeginning action', () => {
-      result = generator.next();
-      expect(result.done).toBe(false);
-      expect(result.value).toEqual(
-        put({ type: createActionTypeOnBeginning(key) }),
-      );
-    });
-
-    test('should CALL onBeginning callback', () => {
-      result = generator.next();
-      expect(result.done).toBe(false);
-    });
-
-    test('should CALL handler', () => {
-      result = generator.next();
-      expect(result.done).toBe(false);
-    });
-
-    test('should PUT onFailure action', () => {
-      result = generator.throw(fakeError);
-      expect(result.done).toBe(false);
-      expect(result.value).toEqual(
-        put({ type: createActionTypeOnFailure(key), payload: fakeError }),
-      );
-    });
-
-    test('should CALL onFailure callback', () => {
-      result = generator.next();
-      expect(result.done).toBe(false);
-    });
-
-    test('should CALL console.log to show where the error occurs', () => {
-      result = generator.next();
-      expect(result.done).toBe(false);
-    });
-
-    test('should CALL console.log to show the error stacktrace', () => {
-      result = generator.next();
-      expect(result.done).toBe(false);
-    });
-
-    test('should PUT onFinish action', () => {
-      result = generator.next();
-      expect(result.done).toBe(false);
-      expect(result.value).toEqual(
-        put({ type: createActionTypeOnFinish(key) }),
-      );
-    });
-
-    test('should CALL onFinish callback', () => {
-      result = generator.next();
-      expect(result.done).toBe(false);
-      // mock
-    });
-
-    test('should end', () => {
-      result = generator.next();
-      expect(result.done).toBe(true);
-    });
-  });
-
-  describe('on error flow on production mode', () => {
-    const fakeError = new Error('test');
-
-    beforeAll(() => {
-      process.env.NODE_ENV = 'production';
       key = 'TEST';
       generator = unfoldSaga({
         handler: () => {
@@ -191,10 +119,6 @@ describe('unfoldSaga', () => {
         },
         key,
       });
-    });
-
-    afterAll(() => {
-      delete process.env.NODE_ENV;
     });
 
     test('should PUT onBeginning action', () => {

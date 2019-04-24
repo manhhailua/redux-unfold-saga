@@ -156,12 +156,6 @@ export function* unfoldSaga(
     yield call(onSuccess, data);
   } catch (error) {
     yield put({ type: createActionTypeOnFailure(key), payload: error });
-    if (process.env.NODE_ENV !== 'production') {
-      /* eslint-disable no-console */
-      yield call(console.log, `Error at ${key} action`);
-      yield call(console.log, error);
-      /* eslint-enable */
-    }
     yield call(onFailure, error);
   } finally {
     yield put({ type: createActionTypeOnFinish(key) });
