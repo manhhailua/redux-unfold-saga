@@ -10,7 +10,7 @@ import { noop } from './helpers';
  * @returns {string}
  *
  * @example
- * createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_BEGAN
+ * createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_BEGAN'
  */
 export function createActionTypeOnBeginning(key: string): string {
   return `${key}_BEGAN`;
@@ -23,7 +23,7 @@ export function createActionTypeOnBeginning(key: string): string {
  * @returns {string}
  *
  * @example
- * createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_FAILED
+ * createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_FAILED'
  */
 export function createActionTypeOnFailure(key: string): string {
   return `${key}_FAILED`;
@@ -36,7 +36,7 @@ export function createActionTypeOnFailure(key: string): string {
  * @returns {string}
  *
  * @example
- * createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_FINISHED
+ * createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_FINISHED'
  */
 export function createActionTypeOnFinish(key: string): string {
   return `${key}_FINISHED`;
@@ -49,7 +49,7 @@ export function createActionTypeOnFinish(key: string): string {
  * @returns {string}
  *
  * @example
- * createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_SUCCEEDED
+ * createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_SUCCEEDED'
  */
 export function createActionTypeOnSuccess(key: string): string {
   return `${key}_SUCCEEDED`;
@@ -94,6 +94,13 @@ export function createActionTypeOnSuccess(key: string): string {
  *     type: 'HOT',
  *   }),
  * );
+ *
+ * @example <caption>Inside another saga</caption>
+ * const queryPosts = createAction('QUERY_POSTS');
+ *
+ * function* takeQueryPosts() {
+ *   yield put(queryPosts());
+ * }
  */
 export function createAction(type: string): Function {
   return (
@@ -137,7 +144,9 @@ export function createAction(type: string): Function {
  *   });
  * }
  *
- * yield takeLatest('QUERY_POSTS', takeQueryPosts);
+ * function* defaultSaga() {
+ *   yield takeLatest('QUERY_POSTS', takeQueryPosts);
+ * }
  */
 export function* unfoldSaga(
   { handler = noop, key = '' }: UnfoldSagaHandlerType,
