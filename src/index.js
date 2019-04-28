@@ -149,7 +149,7 @@ export function createAction(type: string): Function {
  * }
  */
 export function* unfoldSaga(
-  { handler = noop, key = '' }: UnfoldSagaHandlerType,
+  { handler, key }: UnfoldSagaHandlerType,
   {
     onBeginning = noop,
     onFailure = noop,
