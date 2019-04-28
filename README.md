@@ -24,6 +24,12 @@ or
 yarn add redux-unfold-saga
 ```
 
+#### Example repo
+
+If you want a quick demo repo in real life.
+
+* https://github.com/manhhailua/redux-unfold-saga-example
+
 #### Usage example
 
 -   index.js
