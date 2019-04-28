@@ -26,7 +26,7 @@ yarn add redux-unfold-saga
 
 #### Usage example
 
-- index.js
+-   index.js
 
 ```javascript
 import React from 'react';
@@ -84,7 +84,7 @@ export default class PostList extends React.Component {
 }
 ```
 
-- saga.js
+-   saga.js
 
 ```javascript
 import { unfoldSaga } from 'redux-unfold-saga';
@@ -110,24 +110,24 @@ function* defaultSaga() {
 
 #### Table of Contents
 
-- [createActionTypeOnBeginning](#createactiontypeonbeginning)
-  - [Parameters](#parameters)
-  - [Examples](#examples)
-- [createActionTypeOnFailure](#createactiontypeonfailure)
-  - [Parameters](#parameters-1)
-  - [Examples](#examples-1)
-- [createActionTypeOnFinish](#createactiontypeonfinish)
-  - [Parameters](#parameters-2)
-  - [Examples](#examples-2)
-- [createActionTypeOnSuccess](#createactiontypeonsuccess)
-  - [Parameters](#parameters-3)
-  - [Examples](#examples-3)
-- [createAction](#createaction)
-  - [Parameters](#parameters-4)
-  - [Examples](#examples-4)
-- [unfoldSaga](#unfoldsaga)
-  - [Parameters](#parameters-5)
-  - [Examples](#examples-5)
+-   [createActionTypeOnBeginning](#createactiontypeonbeginning)
+    -   [Parameters](#parameters)
+    -   [Examples](#examples)
+-   [createActionTypeOnFailure](#createactiontypeonfailure)
+    -   [Parameters](#parameters-1)
+    -   [Examples](#examples-1)
+-   [createActionTypeOnFinish](#createactiontypeonfinish)
+    -   [Parameters](#parameters-2)
+    -   [Examples](#examples-2)
+-   [createActionTypeOnSuccess](#createactiontypeonsuccess)
+    -   [Parameters](#parameters-3)
+    -   [Examples](#examples-3)
+-   [createAction](#createaction)
+    -   [Parameters](#parameters-4)
+    -   [Examples](#examples-4)
+-   [unfoldSaga](#unfoldsaga)
+    -   [Parameters](#parameters-5)
+    -   [Examples](#examples-5)
 
 ### createActionTypeOnBeginning
 
@@ -135,15 +135,15 @@ Create onBeginning action type
 
 #### Parameters
 
-- `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+-   `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 #### Examples
 
 ```javascript
-createActionTypeOnSuccess('DO_SOMETHING'); // 'DO_SOMETHING_BEGAN
+createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_BEGAN'
 ```
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ### createActionTypeOnFailure
 
@@ -151,15 +151,15 @@ Create onFailure action type
 
 #### Parameters
 
-- `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+-   `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 #### Examples
 
 ```javascript
-createActionTypeOnSuccess('DO_SOMETHING'); // 'DO_SOMETHING_FAILED
+createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_FAILED'
 ```
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ### createActionTypeOnFinish
 
@@ -167,15 +167,15 @@ Create onFinish action type
 
 #### Parameters
 
-- `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+-   `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 #### Examples
 
 ```javascript
-createActionTypeOnSuccess('DO_SOMETHING'); // 'DO_SOMETHING_FINISHED
+createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_FINISHED'
 ```
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ### createActionTypeOnSuccess
 
@@ -183,15 +183,15 @@ Create onSuccess action type
 
 #### Parameters
 
-- `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+-   `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 #### Examples
 
 ```javascript
-createActionTypeOnSuccess('DO_SOMETHING'); // 'DO_SOMETHING_SUCCEEDED
+createActionTypeOnSuccess('DO_SOMETHING') // 'DO_SOMETHING_SUCCEEDED'
 ```
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ### createAction
 
@@ -199,11 +199,12 @@ Create an action for real life usage inside or even outside of a component
 
 #### Parameters
 
-- `type` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+-   `type` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 #### Examples
 
 Inside of a component
+
 
 ```javascript
 const queryPosts = createAction('QUERY_POSTS');
@@ -211,29 +212,30 @@ const queryPosts = createAction('QUERY_POSTS');
 this.props.dispatch(
   queryPosts(
     {
-      type: 'HOT',
+      category: 'HOT',
     },
     {
       onBeginning: () => {
         // Do something before the query
         this.setState({ isLoading: true });
-      },
-      onFailure: error => {
+      }
+      onFailure: (error) => {
         // Do something in case of caught error
-      },
-      onSuccess: posts => {
+      }
+      onSuccess: (posts) => {
         // Do something after the query succeeded
-      },
+      }
       onFinished: () => {
         // Do something after everything is done
         this.setState({ isLoading: false });
-      },
+      }
     },
   ),
 );
 ```
 
 Outside of a react component
+
 
 ```javascript
 store.dispatch(
@@ -243,7 +245,18 @@ store.dispatch(
 );
 ```
 
-Returns **UnfoldSagaActionType**
+Inside another saga
+
+
+```javascript
+const queryPosts = createAction('QUERY_POSTS');
+
+function* takeQueryPosts() {
+  yield put(queryPosts());
+}
+```
+
+Returns **UnfoldSagaActionType** 
 
 ### unfoldSaga
 
@@ -251,32 +264,34 @@ Common saga helper that unifies handling side effects into only one standard for
 
 #### Parameters
 
-- `body` **UnfoldSagaHandlerType**
-  - `body.handler` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** Main handler function. Its returned value will become onSuccess callback param (optional, default `noop`)
-  - `body.key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Action type (optional, default `''`)
-- `callbacks` **UnfoldSagaCallbacksType** (optional, default `{}`)
-  - `callbacks.onBeginning` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onBeginning action is dispatched. (optional, default `noop`)
-  - `callbacks.onFailure` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onFailure action is dispatched. It will only be called in case of error. (optional, default `noop`)
-  - `callbacks.onFinish` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onFinish action is dispatched. (optional, default `noop`)
-  - `callbacks.onSuccess` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onSuccess action is dispatched. It will not be called in case of error. (optional, default `noop`)
+-   `body` **UnfoldSagaHandlerType** 
+    -   `body.handler` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** Main handler function. Its returned value will become onSuccess callback param
+    -   `body.key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Action type
+-   `callbacks` **UnfoldSagaCallbacksType**  (optional, default `{}`)
+    -   `callbacks.onBeginning` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onBeginning action is dispatched. (optional, default `noop`)
+    -   `callbacks.onFailure` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onFailure action is dispatched. It will only be called in case of error. (optional, default `noop`)
+    -   `callbacks.onFinish` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onFinish action is dispatched. (optional, default `noop`)
+    -   `callbacks.onSuccess` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onSuccess action is dispatched. It will not be called in case of error. (optional, default `noop`)
 
 #### Examples
 
 ```javascript
-function* takeQueryPosts({ payload }) {
+function* takeQueryPosts({ payload: { category } }) {
   yield unfoldSaga({
     handler: async () => {
-      const posts = await queryPosts(payload);
+      const posts = await queryPosts({ category });
       return posts;
     },
     key: 'QUERY_POSTS',
   });
 }
 
-yield takeLatest('QUERY_POSTS', takeQueryPosts);
+function* defaultSaga() {
+  yield takeLatest('QUERY_POSTS', takeQueryPosts);
+}
 ```
 
-Returns **Saga&lt;void>**
+Returns **Saga&lt;void>** 
 
 ## License
 
