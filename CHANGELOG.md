@@ -1,3 +1,19 @@
+## [1.2.2](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.1...v1.2.2) (2019-05-13)
+
+
+### Bug Fixes
+
+* 🐛 Wrong module name ([18e10a4](https://github.com/manhhailua/redux-unfold-saga/commit/18e10a4))
+
+
+
+## [1.2.2](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.1...v1.2.2) (2019-05-13)
+
+
+### Bug Fixes
+
+* 🐛 Wrong module name ([18e10a4](https://github.com/manhhailua/redux-unfold-saga/commit/18e10a4))
+
 ## [1.2.1](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.0...v1.2.1) (2019-05-13)
 
 
