@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { SagaIterator } from 'redux-saga';
 
-declare module 'src/@types/redux-unfold-saga' {
+declare module 'redux-unfold-saga' {
   interface UnfoldSagaHandlerType {
     handler: Function;
     key: string;
