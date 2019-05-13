@@ -1,3 +1,19 @@
+# [1.2.0](https://github.com/manhhailua/redux-unfold-saga/compare/v1.1.3...v1.2.0) (2019-05-13)
+
+
+### Features
+
+* 🎸 Add typescript support ([492e141](https://github.com/manhhailua/redux-unfold-saga/commit/492e141))
+
+
+
+# [1.2.0](https://github.com/manhhailua/redux-unfold-saga/compare/v1.1.3...v1.2.0) (2019-05-13)
+
+
+### Features
+
+* 🎸 Add typescript support ([492e141](https://github.com/manhhailua/redux-unfold-saga/commit/492e141))
+
 ## [1.1.3](https://github.com/manhhailua/redux-unfold-saga/compare/v1.1.2...v1.1.3) (2019-04-28)
 
 

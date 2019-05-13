@@ -28,7 +28,7 @@ yarn add redux-unfold-saga
 
 If you want a quick demo repo in real life.
 
-* https://github.com/manhhailua/redux-unfold-saga-example
+-   <https://github.com/manhhailua/redux-unfold-saga-example>
 
 #### Usage example
 
