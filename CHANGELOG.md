@@ -1,3 +1,19 @@
+## [1.2.1](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.0...v1.2.1) (2019-05-13)
+
+
+### Bug Fixes
+
+* 🐛 Support detecting types ([9e3bc9f](https://github.com/manhhailua/redux-unfold-saga/commit/9e3bc9f))
+
+
+
+## [1.2.1](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.0...v1.2.1) (2019-05-13)
+
+
+### Bug Fixes
+
+* 🐛 Support detecting types ([9e3bc9f](https://github.com/manhhailua/redux-unfold-saga/commit/9e3bc9f))
+
 # [1.2.0](https://github.com/manhhailua/redux-unfold-saga/compare/v1.1.3...v1.2.0) (2019-05-13)
 
 
