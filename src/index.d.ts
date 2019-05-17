@@ -9,6 +9,14 @@ declare module 'redux-unfold-saga' {
     payload: any;
   }
 
+  interface UnfoldSagaActionExecutionType {
+    (
+      payload: any,
+      callbacks?: UnfoldSagaCallbacksType,
+      options?: any,
+    ): UnfoldSagaActionType;
+  }
+
   interface UnfoldSagaCallbacksType {
     onBeginning?: Function;
     onFailure?: Function;
@@ -29,7 +37,7 @@ declare module 'redux-unfold-saga' {
 
   export function createActionTypeOnSuccess(key: string): string;
 
-  export function createAction(type: string): UnfoldSagaActionType;
+  export function createAction(type: string): UnfoldSagaActionExecutionType;
 
   export function unfoldSaga(
     type: UnfoldSagaHandlerType,
