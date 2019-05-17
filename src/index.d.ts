@@ -1,10 +1,12 @@
 /* eslint-disable */
+import { AnyAction } from 'redux';
 import { SagaIterator } from 'redux-saga';
 
 declare module 'redux-unfold-saga' {
-  interface UnfoldSagaHandlerType {
-    handler: Function;
-    key: string;
+  interface UnfoldSagaActionType extends AnyAction {
+    callbacks: UnfoldSagaCallbacksType;
+    options: any;
+    payload: any;
   }
 
   interface UnfoldSagaCallbacksType {
@@ -12,6 +14,11 @@ declare module 'redux-unfold-saga' {
     onFailure?: Function;
     onFinish?: Function;
     onSuccess?: Function;
+  }
+
+  interface UnfoldSagaHandlerType {
+    handler: Function;
+    key: string;
   }
 
   export function createActionTypeOnBeginning(key: string): string;
@@ -22,7 +29,7 @@ declare module 'redux-unfold-saga' {
 
   export function createActionTypeOnSuccess(key: string): string;
 
-  export function createAction(type: string): Function;
+  export function createAction(type: string): UnfoldSagaActionType;
 
   export function unfoldSaga(
     type: UnfoldSagaHandlerType,
