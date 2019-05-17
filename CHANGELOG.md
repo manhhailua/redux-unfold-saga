@@ -1,3 +1,19 @@
+## [1.2.4](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.3...v1.2.4) (2019-05-17)
+
+
+### Bug Fixes
+
+* 🐛 Correct ExecutionType ([26067f1](https://github.com/manhhailua/redux-unfold-saga/commit/26067f1))
+
+
+
+## [1.2.4](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.3...v1.2.4) (2019-05-17)
+
+
+### Bug Fixes
+
+* 🐛 Correct ExecutionType ([26067f1](https://github.com/manhhailua/redux-unfold-saga/commit/26067f1))
+
 ## [1.2.3](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.2...v1.2.3) (2019-05-17)
 
 
