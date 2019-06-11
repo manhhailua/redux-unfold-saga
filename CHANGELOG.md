@@ -1,3 +1,19 @@
+## [1.2.5](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.4...v1.2.5) (2019-06-11)
+
+
+### Performance Improvements
+
+* ⚡️ Upgrade dependencies ([af95d81](https://github.com/manhhailua/redux-unfold-saga/commit/af95d81))
+
+
+
+## [1.2.5](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.4...v1.2.5) (2019-06-11)
+
+
+### Performance Improvements
+
+* ⚡️ Upgrade dependencies ([af95d81](https://github.com/manhhailua/redux-unfold-saga/commit/af95d81))
+
 ## [1.2.4](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.3...v1.2.4) (2019-05-17)
 
 
