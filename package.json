@@ -1,6 +1,6 @@
 {
   "name": "redux-unfold-saga",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "A no headache middleware helper for redux-saga.",
   "license": "MIT",
   "repository": "manhhailua/redux-unfold-saga",

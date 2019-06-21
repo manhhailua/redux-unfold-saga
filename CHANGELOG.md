@@ -1,3 +1,19 @@
+## [1.2.6](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.5...v1.2.6) (2019-06-21)
+
+
+### Bug Fixes
+
+* 🐛 Stop copying types to dist ([929c88a](https://github.com/manhhailua/redux-unfold-saga/commit/929c88a))
+
+
+
+## [1.2.6](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.5...v1.2.6) (2019-06-21)
+
+
+### Bug Fixes
+
+* 🐛 Stop copying types to dist ([929c88a](https://github.com/manhhailua/redux-unfold-saga/commit/929c88a))
+
 ## [1.2.5](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.4...v1.2.5) (2019-06-11)
 
 
