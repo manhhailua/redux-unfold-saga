@@ -1,3 +1,19 @@
+## [1.2.7](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.6...v1.2.7) (2019-06-21)
+
+
+### Bug Fixes
+
+* 🐛 Remove declaration module ([d73429d](https://github.com/manhhailua/redux-unfold-saga/commit/d73429d))
+
+
+
+## [1.2.7](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.6...v1.2.7) (2019-06-21)
+
+
+### Bug Fixes
+
+* 🐛 Remove declaration module ([d73429d](https://github.com/manhhailua/redux-unfold-saga/commit/d73429d))
+
 ## [1.2.6](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.5...v1.2.6) (2019-06-21)
 
 
