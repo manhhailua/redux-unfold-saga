@@ -1,3 +1,29 @@
+# [1.3.0](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.7...v1.3.0) (2019-06-25)
+
+
+### Bug Fixes
+
+* 🐛 Payload is now not required when dispatch action ([b488d80](https://github.com/manhhailua/redux-unfold-saga/commit/b488d80))
+
+
+### Features
+
+* 🎸 Allow custom type for payload and option ([0cb054f](https://github.com/manhhailua/redux-unfold-saga/commit/0cb054f))
+
+
+
+# [1.3.0](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.7...v1.3.0) (2019-06-25)
+
+
+### Bug Fixes
+
+* 🐛 Payload is now not required when dispatch action ([b488d80](https://github.com/manhhailua/redux-unfold-saga/commit/b488d80))
+
+
+### Features
+
+* 🎸 Allow custom type for payload and option ([0cb054f](https://github.com/manhhailua/redux-unfold-saga/commit/0cb054f))
+
 ## [1.2.7](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.6...v1.2.7) (2019-06-21)
 
 
