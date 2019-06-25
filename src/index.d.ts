@@ -2,18 +2,14 @@
 import { AnyAction } from 'redux';
 import { SagaIterator } from 'redux-saga';
 
-export interface UnfoldSagaActionType extends AnyAction {
+export interface UnfoldSagaActionType<PayloadType = any, OptionType = any> extends AnyAction {
   callbacks: UnfoldSagaCallbacksType;
-  options: any;
-  payload: any;
+  options: OptionType;
+  payload: PayloadType;
 }
 
-export interface UnfoldSagaActionExecutionType {
-  (
-    payload?: any,
-    callbacks?: UnfoldSagaCallbacksType,
-    options?: any,
-  ): UnfoldSagaActionType;
+export interface UnfoldSagaActionExecutionType<PayloadType = any, OptionType = any> {
+  (payload?: PayloadType, callbacks?: UnfoldSagaCallbacksType, options?: OptionType): UnfoldSagaActionType;
 }
 
 export interface UnfoldSagaCallbacksType {
@@ -38,7 +34,4 @@ export function createActionTypeOnSuccess(key: string): string;
 
 export function createAction(type: string): UnfoldSagaActionExecutionType;
 
-export function unfoldSaga(
-  type: UnfoldSagaHandlerType,
-  callback: UnfoldSagaCallbacksType,
-): SagaIterator;
+export function unfoldSaga(type: UnfoldSagaHandlerType, callback: UnfoldSagaCallbacksType): SagaIterator;

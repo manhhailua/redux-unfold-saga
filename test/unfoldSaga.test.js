@@ -28,9 +28,7 @@ describe('unfoldSaga', () => {
 
     test('should PUT onBeginning action', () => {
       expect(result.done).toBe(false);
-      expect(result.value).toEqual(
-        put({ type: createActionTypeOnBeginning(key) }),
-      );
+      expect(result.value).toEqual(put({ type: createActionTypeOnBeginning(key) }));
     });
 
     test('should CALL onBeginning callback', () => {
@@ -46,9 +44,7 @@ describe('unfoldSaga', () => {
 
     test('should PUT onSuccess action', () => {
       expect(result.done).toBe(false);
-      expect(result.value).toEqual(
-        put({ type: createActionTypeOnSuccess(key) }),
-      );
+      expect(result.value).toEqual(put({ type: createActionTypeOnSuccess(key) }));
     });
 
     test('should CALL onSuccess callback', () => {
@@ -57,9 +53,7 @@ describe('unfoldSaga', () => {
 
     test('should PUT onFinish action', () => {
       expect(result.done).toBe(false);
-      expect(result.value).toEqual(
-        put({ type: createActionTypeOnFinish(key) }),
-      );
+      expect(result.value).toEqual(put({ type: createActionTypeOnFinish(key) }));
     });
 
     test('should CALL onFinish callback', () => {
@@ -88,9 +82,7 @@ describe('unfoldSaga', () => {
     test('should PUT onBeginning action', () => {
       result = generator.next();
       expect(result.done).toBe(false);
-      expect(result.value).toEqual(
-        put({ type: createActionTypeOnBeginning(key) }),
-      );
+      expect(result.value).toEqual(put({ type: createActionTypeOnBeginning(key) }));
     });
 
     test('should CALL onBeginning callback', () => {
@@ -106,9 +98,7 @@ describe('unfoldSaga', () => {
     test('should PUT onFailure action', () => {
       result = generator.throw(fakeError);
       expect(result.done).toBe(false);
-      expect(result.value).toEqual(
-        put({ type: createActionTypeOnFailure(key), payload: fakeError }),
-      );
+      expect(result.value).toEqual(put({ type: createActionTypeOnFailure(key), payload: fakeError }));
     });
 
     test('should CALL onFailure callback', () => {
@@ -119,9 +109,7 @@ describe('unfoldSaga', () => {
     test('should PUT onFinish action', () => {
       result = generator.next();
       expect(result.done).toBe(false);
-      expect(result.value).toEqual(
-        put({ type: createActionTypeOnFinish(key) }),
-      );
+      expect(result.value).toEqual(put({ type: createActionTypeOnFinish(key) }));
     });
 
     test('should CALL onFinish callback', () => {

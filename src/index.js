@@ -150,12 +150,7 @@ export function createAction(type: string): Function {
  */
 export function* unfoldSaga(
   { handler, key }: UnfoldSagaHandlerType,
-  {
-    onBeginning = noop,
-    onFailure = noop,
-    onFinish = noop,
-    onSuccess = noop,
-  }: UnfoldSagaCallbacksType = {},
+  { onBeginning = noop, onFailure = noop, onFinish = noop, onSuccess = noop }: UnfoldSagaCallbacksType = {},
 ): Saga<void> {
   try {
     yield put({ type: createActionTypeOnBeginning(key) });
