@@ -10,7 +10,7 @@ export interface UnfoldSagaActionType extends AnyAction {
 
 export interface UnfoldSagaActionExecutionType {
   (
-    payload: any,
+    payload?: any,
     callbacks?: UnfoldSagaCallbacksType,
     options?: any,
   ): UnfoldSagaActionType;
