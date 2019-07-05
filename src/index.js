@@ -1,6 +1,5 @@
 // @flow
 import { call, put } from 'redux-saga/effects';
-import type { Saga } from 'redux-saga';
 import { noop } from './helpers';
 
 /**
@@ -151,7 +150,7 @@ export function createAction(type: string): Function {
 export function* unfoldSaga(
   { handler, key }: UnfoldSagaHandlerType,
   { onBeginning = noop, onFailure = noop, onFinish = noop, onSuccess = noop }: UnfoldSagaCallbacksType = {},
-): Saga<void> {
+): any {
   try {
     yield put({ type: createActionTypeOnBeginning(key) });
     yield call(onBeginning);
