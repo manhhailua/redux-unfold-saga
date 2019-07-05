@@ -34,4 +34,4 @@ export function createActionTypeOnSuccess(key: string): string;
 
 export function createAction(type: string): UnfoldSagaActionExecutionType;
 
-export function unfoldSaga(type: UnfoldSagaHandlerType, callback: UnfoldSagaCallbacksType): SagaIterator;
+export function unfoldSaga(type: UnfoldSagaHandlerType, callback: UnfoldSagaCallbacksType): any;
