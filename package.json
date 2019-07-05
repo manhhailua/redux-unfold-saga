@@ -27,10 +27,8 @@
     "postcoverage": "opn coverage/lcov-report/index.html",
     "postdocs": "git add README.md",
     "prebuild": "npm run docs && npm run clean && npm run flowbuild",
-    "preversion": "npm run lint && npm test && npm run build",
     "semantic-release": "semantic-release",
-    "test": "jest",
-    "version": "standard-changelog && git add CHANGELOG.md"
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -69,7 +67,7 @@
   },
   "dependencies": {
     "redux": "^4.0.1",
-    "redux-saga": "^1.0.3"
+    "redux-saga": "^1.0.5"
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",
@@ -97,7 +95,6 @@
     "opn-cli": "5.0.0",
     "prettier": "1.18.2",
     "rimraf": "2.6.3",
-    "semantic-release": "^15.13.16",
-    "standard-changelog": "2.0.11"
+    "semantic-release": "^15.13.16"
   }
 }
