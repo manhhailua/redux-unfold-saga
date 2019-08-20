@@ -2,7 +2,6 @@ language: node_js
 
 node_js:
   - lts/*
-  - node
 
 before_script:
   - npx flow-typed install
@@ -17,10 +16,8 @@ jobs:
   include:
     - stage: test
       script: sh scripts/test.sh
-    - stage: prepare
-      script: sh scripts/deploy.sh --branch=$TRAVIS_PULL_REQUEST_BRANCH
     - stage: release
-      script: skip
+      before_script: skip
       deploy:
         provider: script
         skip_cleanup: true
@@ -28,7 +25,6 @@ jobs:
 
 stages:
   - name: test
-  - name: prepare
   - name: release
     if: branch = master
 
