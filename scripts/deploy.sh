@@ -1,3 +1,3 @@
 #!/bin/sh
 yarn build
-yarn semantic-release $1
+yarn semantic-release
