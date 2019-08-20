@@ -1,3 +1,13 @@
+## [1.3.1](https://github.com/manhhailua/redux-unfold-saga/compare/v1.3.0...v1.3.1) (2019-08-20)
+
+
+### Bug Fixes
+
+* 🐛 Change release steps ([4f3a6d9](https://github.com/manhhailua/redux-unfold-saga/commit/4f3a6d9))
+* 🐛 Fix dependencies' vulnerabilities ([a585e47](https://github.com/manhhailua/redux-unfold-saga/commit/a585e47))
+* 🐛 Make separated scripts ([7500d2f](https://github.com/manhhailua/redux-unfold-saga/commit/7500d2f))
+* 🐛 Use any for unfoldSaga ([f3b8a0f](https://github.com/manhhailua/redux-unfold-saga/commit/f3b8a0f))
+
 # [1.3.0](https://github.com/manhhailua/redux-unfold-saga/compare/v1.2.7...v1.3.0) (2019-06-25)
 
 
