@@ -16,21 +16,19 @@ cache:
 jobs:
   include:
     - stage: test
-      script:
-        - yarn lint
-        - yarn flow
-        - yarn test --coverage
+      script: sh scripts/test.sh
+    - stage: prepare
+      script: sh scripts/deploy.sh --branch=$TRAVIS_PULL_REQUEST_BRANCH
     - stage: release
       script: skip
       deploy:
         provider: script
         skip_cleanup: true
-        script:
-          - yarn build
-          - yarn semantic-release
+        script: sh scripts/deploy.sh
 
 stages:
   - name: test
+  - name: prepare
   - name: release
     if: branch = master
 
