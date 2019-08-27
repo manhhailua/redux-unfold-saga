@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/manhhailua/redux-unfold-saga/compare/v1.3.3...v1.3.4) (2019-08-27)
+
+
+### Bug Fixes
+
+* 🐛 Skip script on deployment ([685dd58](https://github.com/manhhailua/redux-unfold-saga/commit/685dd58))
+
 ## [1.3.3](https://github.com/manhhailua/redux-unfold-saga/compare/v1.3.2...v1.3.3) (2019-08-27)
 
 
