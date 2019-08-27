@@ -32,6 +32,6 @@ export function createActionTypeOnFinish(key: string): string;
 
 export function createActionTypeOnSuccess(key: string): string;
 
-export function createAction(type: string): UnfoldSagaActionExecutionType;
+export function createAction<P, O>(type: string): UnfoldSagaActionExecutionType<P, O>;
 
 export function unfoldSaga(type: UnfoldSagaHandlerType, callback: UnfoldSagaCallbacksType): any;
