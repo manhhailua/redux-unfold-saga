@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/manhhailua/redux-unfold-saga/compare/v1.3.2...v1.3.3) (2019-08-27)
+
+
+### Bug Fixes
+
+* 🐛 Allow createAction with type ([17946e4](https://github.com/manhhailua/redux-unfold-saga/commit/17946e4))
+
 ## [1.3.2](https://github.com/manhhailua/redux-unfold-saga/compare/v1.3.1...v1.3.2) (2019-08-20)
 
 
