@@ -1,6 +1,5 @@
 /* eslint-disable */
 import { AnyAction } from 'redux';
-import { SagaIterator } from 'redux-saga';
 
 export interface UnfoldSagaActionType<PayloadType = any, OptionType = any> extends AnyAction {
   callbacks: UnfoldSagaCallbacksType;
