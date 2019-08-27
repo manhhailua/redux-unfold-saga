@@ -18,6 +18,7 @@ jobs:
       script: sh scripts/test.sh
     - stage: release
       before_script: skip
+      script: skip
       deploy:
         provider: script
         skip_cleanup: true
