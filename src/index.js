@@ -163,10 +163,11 @@ export function* unfoldSaga(
   { handler, key }: UnfoldSagaHandlerType,
   { onBeginning = noop, onFailure = noop, onFinish = noop, onSuccess = noop }: UnfoldSagaCallbacksType = {},
 ): any {
+  let data;
+
   try {
     yield put({ type: createActionTypeOnBeginning(key) });
     yield call(onBeginning);
-    let data;
     if (['GeneratorFunction', 'AsyncGeneratorFunction'].includes(handler.constructor.name)) {
       data = yield* handler();
     } else {
@@ -181,6 +182,8 @@ export function* unfoldSaga(
     yield put({ type: createActionTypeOnFinish(key) });
     yield call(onFinish);
   }
+
+  return data;
 }
 
 export default {

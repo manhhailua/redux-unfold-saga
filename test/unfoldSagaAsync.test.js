@@ -75,6 +75,7 @@ describe('unfoldSaga for async handler', () => {
     test('should end', () => {
       result = generator.next();
       expect(result.done).toBe(true);
+      expect(result.value).toBe(fakeResult);
     });
   });
 
