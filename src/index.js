@@ -143,8 +143,20 @@ export function createAction(type: string): Function {
  *   });
  * }
  *
+ * @example
+ * function* takeQueryCategories({ payload: { category } }) {
+ *   yield unfoldSaga({
+ *     *handler() => {
+ *       const categories = yield call(queryPosts, { category });
+ *       return categories;
+ *     },
+ *     key: 'QUERY_CATEGORIES',
+ *   });
+ * }
+ *
  * function* defaultSaga() {
  *   yield takeLatest('QUERY_POSTS', takeQueryPosts);
+ *   yield takeLatest('QUERY_CATEGORIES, takeQueryCategories);
  * }
  */
 export function* unfoldSaga(
