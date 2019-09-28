@@ -291,9 +291,22 @@ function* takeQueryPosts({ payload: { category } }) {
     key: 'QUERY_POSTS',
   });
 }
+```
+
+```javascript
+function* takeQueryCategories({ payload: { category } }) {
+  yield unfoldSaga({
+    *handler() => {
+      const categories = yield call(queryPosts, { category });
+      return categories;
+    },
+    key: 'QUERY_CATEGORIES',
+  });
+}
 
 function* defaultSaga() {
   yield takeLatest('QUERY_POSTS', takeQueryPosts);
+  yield takeLatest('QUERY_CATEGORIES, takeQueryCategories);
 }
 ```
 

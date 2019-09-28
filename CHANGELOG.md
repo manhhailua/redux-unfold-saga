@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/manhhailua/redux-unfold-saga/compare/v1.3.4...v1.4.0) (2019-09-28)
+
+
+### Features
+
+* 🎸 Able to pass generator to handler ([c9899f4](https://github.com/manhhailua/redux-unfold-saga/commit/c9899f4))
+* 🎸 unfoldSaga return success data ([2f89269](https://github.com/manhhailua/redux-unfold-saga/commit/2f89269))
+
 ## [1.3.4](https://github.com/manhhailua/redux-unfold-saga/compare/v1.3.3...v1.3.4) (2019-08-27)
 
 
