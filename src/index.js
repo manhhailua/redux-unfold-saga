@@ -154,7 +154,12 @@ export function* unfoldSaga(
   try {
     yield put({ type: createActionTypeOnBeginning(key) });
     yield call(onBeginning);
-    const data = yield call(handler);
+    let data;
+    if (['GeneratorFunction', 'AsyncGeneratorFunction'].includes(handler.constructor.name)) {
+      data = yield* handler();
+    } else {
+      data = yield call(handler);
+    }
     yield put({ type: createActionTypeOnSuccess(key), payload: data });
     yield call(onSuccess, data);
   } catch (error) {

@@ -19,7 +19,7 @@ export interface UnfoldSagaCallbacksType {
 }
 
 export interface UnfoldSagaHandlerType {
-  handler: Function;
+  handler: Function | GeneratorFunction;
   key: string;
 }
 
