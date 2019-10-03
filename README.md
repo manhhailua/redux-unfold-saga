@@ -274,10 +274,12 @@ Common saga helper that unifies handling side effects into only one standard for
     -   `body.handler` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** Main handler function. Its returned value will become onSuccess callback param
     -   `body.key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Action type
 -   `callbacks` **UnfoldSagaCallbacksType**  (optional, default `{}`)
-    -   `callbacks.onBeginning` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onBeginning action is dispatched. (optional, default `noop`)
-    -   `callbacks.onFailure` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onFailure action is dispatched. It will only be called in case of error. (optional, default `noop`)
-    -   `callbacks.onFinish` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onFinish action is dispatched. (optional, default `noop`)
-    -   `callbacks.onSuccess` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onSuccess action is dispatched. It will not be called in case of error. (optional, default `noop`)
+    -   `callbacks.onBeginning` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onBeginning action is dispatched.
+    -   `callbacks.onFailure` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onFailure action is dispatched. It will only be called in case of error.
+    -   `callbacks.onFinish` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onFinish action is dispatched.
+    -   `callbacks.onSuccess` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** This callback will be called after onSuccess action is dispatched. It will not be called in case of error.
+-   `options` **UnfoldSagaOptionsType**  (optional, default `{}`)
+    -   `options.stateless` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** This ensures if redux actions will be triggered
 
 #### Examples
 

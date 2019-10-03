@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/manhhailua/redux-unfold-saga/compare/v1.4.0...v1.5.0) (2019-10-03)
+
+
+### Features
+
+* 🎸 Add stateless flow options ([4d62ffd](https://github.com/manhhailua/redux-unfold-saga/commit/4d62ffd))
+
 # [1.4.0](https://github.com/manhhailua/redux-unfold-saga/compare/v1.3.4...v1.4.0) (2019-09-28)
 
 
