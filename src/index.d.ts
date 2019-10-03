@@ -18,6 +18,10 @@ export interface UnfoldSagaCallbacksType {
   onSuccess?: Function;
 }
 
+export interface UnfoldSagaOptionsType {
+  stateless?: boolean;
+}
+
 export interface UnfoldSagaHandlerType {
   handler: Function | GeneratorFunction;
   key: string;
@@ -33,4 +37,8 @@ export function createActionTypeOnSuccess(key: string): string;
 
 export function createAction<P, O>(type: string): UnfoldSagaActionExecutionType<P, O>;
 
-export function unfoldSaga(type: UnfoldSagaHandlerType, callback: UnfoldSagaCallbacksType): any;
+export function unfoldSaga(
+  type: UnfoldSagaHandlerType,
+  callbacks?: UnfoldSagaCallbacksType,
+  options?: UnfoldSagaOptionsType,
+): any;
