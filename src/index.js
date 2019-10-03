@@ -130,6 +130,8 @@ export function createAction(type: string): Function {
  * @param {Function} callbacks.onFailure This callback will be called after onFailure action is dispatched. It will only be called in case of error.
  * @param {Function} callbacks.onFinish This callback will be called after onFinish action is dispatched.
  * @param {Function} callbacks.onSuccess This callback will be called after onSuccess action is dispatched. It will not be called in case of error.
+ * @param {UnfoldSagaOptionsType} options
+ * @param {boolean} options.stateless This ensures if redux actions will be triggered
  * @returns {Saga<void>}
  *
  * @example
@@ -161,26 +163,39 @@ export function createAction(type: string): Function {
  */
 export function* unfoldSaga(
   { handler, key }: UnfoldSagaHandlerType,
-  { onBeginning = noop, onFailure = noop, onFinish = noop, onSuccess = noop }: UnfoldSagaCallbacksType = {},
+  callbacks: UnfoldSagaCallbacksType = {},
+  options: UnfoldSagaOptionsType = {},
 ): any {
   let data;
+  const defaultCallbacks = {
+    onBeginning: noop,
+    onFailure: noop,
+    onFinish: noop,
+    onSuccess: noop,
+  };
+  const defaultOptions = {
+    stateless: false,
+  };
+
+  Object.assign(defaultCallbacks, callbacks);
+  Object.assign(defaultOptions, options);
 
   try {
-    yield put({ type: createActionTypeOnBeginning(key) });
-    yield call(onBeginning);
+    if (defaultOptions.stateless === false) yield put({ type: createActionTypeOnBeginning(key) });
+    yield call(defaultCallbacks.onBeginning);
     if (['GeneratorFunction', 'AsyncGeneratorFunction'].includes(handler.constructor.name)) {
       data = yield* handler();
     } else {
       data = yield call(handler);
     }
-    yield put({ type: createActionTypeOnSuccess(key), payload: data });
-    yield call(onSuccess, data);
+    if (defaultOptions.stateless === false) yield put({ type: createActionTypeOnSuccess(key), payload: data });
+    yield call(defaultCallbacks.onSuccess, data);
   } catch (error) {
-    yield put({ type: createActionTypeOnFailure(key), payload: error });
-    yield call(onFailure, error);
+    if (defaultOptions.stateless === false) yield put({ type: createActionTypeOnFailure(key), payload: error });
+    yield call(defaultCallbacks.onFailure, error);
   } finally {
-    yield put({ type: createActionTypeOnFinish(key) });
-    yield call(onFinish);
+    if (defaultOptions.stateless === false) yield put({ type: createActionTypeOnFinish(key) });
+    yield call(defaultCallbacks.onFinish);
   }
 
   return data;
