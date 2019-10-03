@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/manhhailua/redux-unfold-saga/compare/v1.5.0...v1.5.1) (2019-10-03)
+
+
+### Bug Fixes
+
+* 🐛 Update types definitions ([b0ef9ea](https://github.com/manhhailua/redux-unfold-saga/commit/b0ef9ea))
+
 # [1.5.0](https://github.com/manhhailua/redux-unfold-saga/compare/v1.4.0...v1.5.0) (2019-10-03)
 
 
